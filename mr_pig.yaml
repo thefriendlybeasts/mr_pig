@@ -1,0 +1,278 @@
+# If you don't want to use Google Chrome Canary while developing and your local
+# URL isn't http://localhost:8080, edit the settings in mr_pig.preferences.yaml.
+# ---
+
+
+
+
+
+# What folder is your site in (relative to this file)?
+# If it's the same folder, use `./`.
+local: public_html
+
+# Your Statamic theme folder.
+theme: acadia
+
+# What would you like to name the folder that holds the built version of
+# your site? I like "Gus."
+dist: dist
+
+
+
+
+
+# PLUGIN CONFIG
+# To disable a plugin, set it to false.
+enable:
+  autoprefixer: true
+  copy: true
+  imageoptim:
+    imageAlpha: true
+    jpegMini: false
+  # On its own, enabling picturefill won't do anything but place
+  # picturefill.min.js in your built site at /js/vendor/picturefill.min.js.
+  #
+  # We recommend serving it with a CDN, with a fallback to your hosted version
+  # by placing the following code in the `<head>` of your layout(s):
+  #
+  # ```html
+  # <script src="//cdnjs.cloudflare.com/ajax/libs/picturefill/2.2.0/picturefill.min.js"></script>
+  # <script>
+  #   window.picturefill || document.write('<script src="/_themes/tfb/js/vendor/picturefill.min.js"><\/script>')
+  # </script>
+  # ```
+  picturefill: false
+  sass: true
+  svgmin: true
+  uncss: true
+  usemin: true
+
+
+autoprefixer:
+  # Which browsers do you want to add vendor prefixes for?
+  # https://github.com/ai/browserslist#queries
+  browsers:
+    - last 2 versions
+    - ie > 9
+
+
+copy:
+  # Which files do you need copied over to the built version of your site?
+  # Statamic core files and your theme should be taken care of already.
+  src:
+    - assets/**/*.{jpg,jpeg,png,gif}
+    - '!assets/img/cache/*.{jpg,jpeg,png,gif}'
+    - assets/img/cache/index.html
+    - '{apple-touch-icon,favicon,mstile}*'
+    - browserconfig.xml
+    - humans.txt
+    - robots.txt
+
+
+imageoptim:
+  imageAlpha:
+    # Which images do you want to run through ImageAlpha?
+    # Mr. Pig already recursively includes all jpg, jpeg, png, and gif files
+    # in _themes/THEME/img.
+    src:
+      - assets/img/**
+      - '{apple-touch-icon,favicon,mstile}*'
+  # [JPEGmini](jpegmini) is a commercial app that does an
+  # [awesome job](awesome) of minifying .jpgs.
+  #
+  # [jpegmini]: https://itunes.apple.com/us/app/jpegmini/id498944723
+  # [awesome]:  http://jamiemason.github.io/ImageOptim-CLI/
+  jpegMini:
+    # Which images do you wanna run through JPEGmini?
+    # Mr. Pig already recursively includes all jpg and jpeg files
+    # in _themes/THEME/img.
+    src:
+      - assets/img/**/*.{jpg,jpeg}
+
+
+svgmin:
+  # Where yo SVGz at?
+  src:
+    - img/*.svg
+  # Which [SVGO](https://github.com/svg/svgo) plugins do you want enabled?
+  #
+  # Find [all the plugins](https://github.com/svg/svgo/tree/master/plugins)
+  # in the repo. To find a plugin's default status, view the file and check if
+  # `exports.active` is set to true/false. This requires a lot of trial/error
+  # to get the most out of it.
+  #
+  # Enable/disable a plugin by copying its filename w/o the extension and
+  # format it as though it was in a Statamic Grid row.
+  #
+  # The values here are what worked for me with the SVGs I made in Sketch
+  # for [The Friendly Beasts](thefriendlybeasts.com).
+  plugins:
+    -
+      cleanupAttrs: true
+    -
+      cleanupEnableBackground: true
+    -
+      cleanupIDs: true
+    -
+      cleanupListOfValues: true
+    -
+      cleanupNumericValues: true
+    -
+      collapseGroups: true
+    -
+      convertColors: true
+    -
+      convertPathData: true
+    -
+      convertShapeToPath: true
+    -
+      convertStyleToAttrs: true
+    -
+      convertTransform: true
+    -
+      mergePaths: true
+    -
+      moveElemsAttrsToGroup: true
+    -
+      moveGroupAttrsToElems: true
+    -
+      removeComments: true
+    -
+      removeDesc: true
+    -
+      removeDoctype: true
+    -
+      removeEditorsNSData: true
+    -
+      removeEmptyAttrs: true
+    -
+      removeEmptyContainers: true
+    -
+      removeEmptyText: true
+    -
+      removeHiddenElems: true
+    -
+      removeMetadata: true
+    -
+      removeNonInheritableGroupAttrs: true
+    -
+      removeRasterImages: true
+    -
+      removeTitle: true
+    -
+      removeUnknownsAndDefaults: true
+    -
+      removeUnusedNS: true
+    -
+      removeUselessStrokeAndFill: true
+    -
+      removeViewBox: true
+    -
+      removeXMLProcInst: true
+    -
+      sortAttrs: true
+    -
+      transformsWithOnePath: true
+
+
+uncss:
+  # Which stylesheets would you like to process with UnCSS
+  # (relative to _themes/THEME/css)?
+  #
+  # Which URLs reference each stylesheet
+  # (relative to root and starting with a slash)?
+  # You probably need one URL per template that references each stylesheet.
+  config:
+    -
+      stylesheet: acadia.css
+      urls:
+        - /
+  # Configuration options for uncss. More info in the
+  # [UnCSS README](https://github.com/giakki/uncss#from-the-command-line).
+  uncssrc:
+    ignore:
+      # Pseudo-classes
+      - "active"
+      - "checked"
+      - "default"
+      - "dir"
+      - "disabled"
+      - "empty"
+      - "enabled"
+      - "first"
+      - "first-child"
+      - "first-of-type"
+      - "focus"
+      - "fullscreen"
+      - "hover"
+      - "in-range"
+      - "indeterminate"
+      - "invalid"
+      - "lang"
+      - "last-child"
+      - "last-of-type"
+      - "left"
+      - "link"
+      - "not"
+      - "nth-child"
+      - "nth-last-child"
+      - "nth-last-of-type"
+      - "nth-of-type"
+      - "only-child"
+      - "only-of-type"
+      - "optional"
+      - "out-of-range"
+      - "read-only"
+      - "read-write"
+      - "required"
+      - "right"
+      - "root"
+      - "scope"
+      - "target"
+      - "valid"
+      - "visited"
+
+      # Pseudo-elements
+      - "after"
+      - "before"
+      - "first-letter"
+      - "first-line"
+      - "selection"
+
+    ignoreSheets:
+      - /fonts.googleapis.com/
+
+    # Taken from [Bootstrap](http://getbootstrap.com/css/#grid-media-queries).
+    media:
+      - "(min-width: 768px)"
+      - "(min-width: 992px)"
+      - "(min-width: 1200px)"
+      - "(max-width: 767px)"
+      - "(min-width: 768px) and (max-width: 991px)"
+      - "(min-width: 992px) and (max-width: 1199px)"
+      - "(min-width: 1200px)"
+
+    timeout: 1000
+
+    htmlroot: dist
+
+    report: true
+
+
+
+# usemin looks through your HTML for blocks of script tags to concatenate and
+# minify. It *can* be used for CSS as well, but if you use Mr. Pig's default
+# SASS setup, doing so would be redundant.
+#
+# Blocks should look something like this (where THEME = your theme folder):
+#
+# ```lang-html
+# <!-- build:js(public_html) <path> -->
+# <script src="/_themes/THEME/js/THEME.js"></script>
+# <script src="/_themes/THEME/js/some-other.js"></script>
+# <!-- endbuild -->
+# ```
+usemin:
+  # Where are your blocks (relative to your theme folder)?
+  src:
+    - /layouts/default.html
