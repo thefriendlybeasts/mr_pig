@@ -57,7 +57,8 @@ autoprefixer:
 
 
 copy:
-  # Which files do you need copied over to the built version of your site?
+  # Which files do you need copied over to the built version of your site
+  # (relative to `local`)?
   # Statamic core files and your theme should be taken care of already.
   src:
     - assets/**/*.{jpg,jpeg,png,gif}
