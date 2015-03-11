@@ -97,11 +97,11 @@ You should never, ever, ever, ever, ever edit anything in `node_modules` and it'
 
 # Usage
 ## During development
-In Terminal, navigate to your project folder and run `grunt`.
+In Terminal, navigate to your project folder and run `grunt serve`.
 
 ```shell
 cd ~/Sites/my-project
-grunt
+grunt serve
 ```
 
 This will run the default Grunt task which opens your site up in your preferred browser and reloads the page/CSS when you make changes.

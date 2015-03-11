@@ -375,10 +375,14 @@ module.exports = function(grunt) {
 // ---
 
 
-  grunt.registerTask('default', [
+  // Use `serve` to maintain consistency with other popular Gruntfiles.
+  grunt.registerTask('serve', [
     'browserSync',
     'watch'
   ]);
+
+  // Set default to `serve` for convenience.
+  grunt.registerTask('default', ['serve']);
 
 
   grunt.registerTask('build', buildTasks);
