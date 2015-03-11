@@ -72,7 +72,9 @@ function writeCSS(config) {
     // If UnCSS threw an error, show it.
     if (error) {
       console.error(
-        'UnCSS: ' + error + '\n' + config.filename + ' not UnCSSed.'
+        'UnCSS error:' + '\n',
+        error,
+        '\n\n' + config.filename + ' not UnCSSed.' + '\n\n'
       );
 
     } else {
