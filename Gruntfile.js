@@ -23,10 +23,19 @@ module.exports = function(grunt) {
   addToTaskList('copy:theme',       mrpig.enable.copy,        buildTasks);
   addToTaskList('copy:misc',        mrpig.enable.copy,        buildTasks);
   addToTaskList('copy:picturefill', mrpig.enable.picturefill, buildTasks);
-  addToTaskList('useminPrepare',    mrpig.enable.usemin,      buildTasks);
-  addToTaskList('concat',           mrpig.enable.usemin,      buildTasks);
-  addToTaskList('uglify',           mrpig.enable.usemin,      buildTasks);
-  addToTaskList('usemin',           mrpig.enable.usemin,      buildTasks);
+  addToTaskList(
+    'useminPrepare',
+    mrpig.enable.usemin.js || mrpig.enable.usemin.css,
+    buildTasks
+  );
+  addToTaskList('concat:generated', mrpig.enable.usemin.js,   buildTasks);
+  addToTaskList('uglify:generated', mrpig.enable.usemin.js,   buildTasks);
+  addToTaskList('cssmin:generated', mrpig.enable.usemin.css,  buildTasks);
+  addToTaskList(
+    'usemin',
+    mrpig.enable.usemin.js || mrpig.enable.usemin.css,
+    buildTasks
+  );
   // Just go ahead and add `concurrent:build`. It just won't do anything if
   // neither imageoptim plugin is enabled.
   addToTaskList('newer:concurrent:build', true, buildTasks);
@@ -38,7 +47,7 @@ module.exports = function(grunt) {
     mrpig.enable.autoprefixer,
     buildTasks
   );
-  addToTaskList('newer:sass:minify', mrpig.enable.sass, buildTasks);
+  addToTaskList('cssmin:build', mrpig.enable.cssmin, buildTasks);
   addToTaskList(
     'imageoptim:imageAlpha',
     mrpig.enable.imageoptim.imageAlpha,
@@ -175,6 +184,18 @@ module.exports = function(grunt) {
     },
 
 
+    cssmin: {
+      build: {
+        files: [{
+          expand: true,
+          cwd:    mrpig.theme_path_dist + '/css',
+          src:    ['*.css'],
+          dest:   mrpig.theme_path_dist + '/css',
+        }]
+      }
+    },
+
+
     // htmlmin is touchy with Statamic templates.
     // Known incompatibilities:
     // - YAML front matter
@@ -274,22 +295,6 @@ module.exports = function(grunt) {
           src:    ['*.scss'],
           dest:   mrpig.theme_path_dist + '/css',
           ext:    '.css'
-        }],
-        options: {
-          sourcemap: 'none',
-          style:     'compressed',
-          update:    true
-        }
-      },
-
-      // This is a little weird, but why use another Grunt plugin when this'll
-      // do the trick?
-      minify: {
-        files: [{
-          expand: true,
-          cwd:    mrpig.theme_path_dist + '/css',
-          src:    ['*.css'],
-          dest:   mrpig.theme_path_dist + '/css',
         }],
         options: {
           sourcemap: 'none',

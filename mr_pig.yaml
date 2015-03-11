@@ -26,6 +26,7 @@ dist: dist
 enable:
   autoprefixer: true
   copy: true
+  cssmin: true
   imageoptim:
     imageAlpha: true
     jpegMini: false
@@ -45,7 +46,9 @@ enable:
   sass: true
   svgmin: true
   uncss: true
-  usemin: true
+  usemin:
+    css: true
+    js: true
 
 
 autoprefixer:
@@ -261,16 +264,35 @@ uncss:
 
 
 
-# usemin looks through your HTML for blocks of script tags to concatenate and
-# minify. It *can* be used for CSS as well, but if you use Mr. Pig's default
-# SASS setup, doing so would be redundant.
+# usemin looks through your HTML for blocks of script tags to concatenate
+# and minify.
 #
-# Blocks should look something like this (where THEME = your theme folder):
+# Blocks should look something like this
+#   1. LANG = `css` or `js`
+#   2. ROOT = the root path for files in the block
+#      (could be `public_html`, if blank, leave out the `()`)
+#   3. PATH  = the path to the built file, relative to `dist` (defined above).
+#   4. THEME = your theme folder
 #
 # ```lang-html
-# <!-- build:js(public_html) <path> -->
-# <script src="/_themes/THEME/js/THEME.js"></script>
-# <script src="/_themes/THEME/js/some-other.js"></script>
+# <!-- build:LANG(ROOT) PATH -->
+# FILES
+# <!-- endbuild -->
+# ```
+#
+# # JavaScript example
+# ```lang-html
+# <!-- build:js(public_html) /_themes/acadia/js/acadia.js -->
+# <script src="/_themes/acadia/js/acadia.js"></script>
+# <script src="/_themes/acadia/js/some-other.js"></script>
+# <!-- endbuild -->
+# ```
+#
+# # CSS example
+# ```lang-html
+# <!-- build:css(public_html) /_themes/acadia/css/acadia.css -->
+# <link rel="stylesheet" href="/_themes/acadia/css/bootstrap.css">
+# <link rel="stylesheet" href="/_themes/acadia/css/acadia.css">
 # <!-- endbuild -->
 # ```
 usemin:
