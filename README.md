@@ -139,7 +139,7 @@ This will create a new folder next to `public_html` that you can easily upload t
 ## Browser and URL
 By default, Mr. Pig will open your site in Google Chrome Canary and use the URL http://localhost:8080 (this is where you would access your site if you used our [Vagrant setup for Statamic](https://github.com/thefriendlybeasts/vagrant-statamic)). If you prefer another browser or URL, simply open `mr_pig.preferences.yaml` and update the values to your liking.
 
-Technically, any option in `mr_pig.yaml` can be overridden in `mr_pig.preferences.yaml`, but you should almost **never** do this. For most sites, you want all settings in `mr_pig.yaml` to be shared by everyone working on the site. `mr_pig.preferences.yaml`, on the other hand, is for personal preferences that do not affect other developers.
+Technically, any option in `mr_pig.yaml` can be overridden in `mr_pig.preferences.yaml`, but you should almost **never** do this (and it's not supported). For most sites, you want all settings in `mr_pig.yaml` to be shared by everyone working on the site. `mr_pig.preferences.yaml`, on the other hand, is for personal preferences that do not affect other developers.
 
 
 ## Everything else
