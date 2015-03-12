@@ -60,7 +60,7 @@ module.exports = function(grunt) {
   );
   addToTaskList(
     'svgmin',
-    mrpig.enable.copy,
+    mrpig.enable.svgmin,
     concurrentTasks
   );
 
