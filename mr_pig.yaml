@@ -65,8 +65,8 @@ copy:
   # Statamic core files and your theme should be taken care of already.
   src:
     - assets/**/*.{jpg,jpeg,png,gif}
-    - '!assets/img/cache/*.{jpg,jpeg,png,gif}'
-    - assets/img/cache/index.html
+    - '!assets/img/resized/*.{jpg,jpeg,png,gif}'
+    - assets/img/resized/index.html
     - '{apple-touch-icon,favicon,mstile}*'
     - browserconfig.xml
     - humans.txt
