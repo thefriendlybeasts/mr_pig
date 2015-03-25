@@ -80,6 +80,7 @@ imageoptim:
     # in _themes/THEME/img.
     src:
       - assets/img/**
+      - '!assets/img/resized/*.{jpg,jpeg,png,gif}'
       - '{apple-touch-icon,favicon,mstile}*'
   # [JPEGmini](jpegmini) is a commercial app that does an
   # [awesome job](awesome) of minifying .jpgs.
@@ -92,6 +93,7 @@ imageoptim:
     # in _themes/THEME/img.
     src:
       - assets/img/**/*.{jpg,jpeg}
+      - '!assets/img/resized/*.{jpg,jpeg}'
 
 
 svgmin:
