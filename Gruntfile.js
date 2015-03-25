@@ -42,12 +42,8 @@ module.exports = function(grunt) {
   addToTaskList('shell:autoprefixer', mrpig.enable.autoprefixer, buildTasks);
   addToTaskList('newer:sass:build',   mrpig.enable.sass,         buildTasks);
   addToTaskList('shell:uncss',        mrpig.enable.uncss,        buildTasks);
-  addToTaskList(
-    'newer:autoprefixer:build',
-    mrpig.enable.autoprefixer,
-    buildTasks
-  );
-  addToTaskList('cssmin:build', mrpig.enable.cssmin, buildTasks);
+  addToTaskList('cssmin:build',       mrpig.enable.cssmin,       buildTasks);
+
   addToTaskList(
     'imageoptim:imageAlpha',
     mrpig.enable.imageoptim.imageAlpha,
