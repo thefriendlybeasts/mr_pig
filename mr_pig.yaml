@@ -8,7 +8,7 @@
 
 # What folder is your site in (relative to this file)?
 # If it's the same folder, use `./`.
-local: public_html
+local: html
 
 # Your Statamic theme folder.
 theme: acadia
