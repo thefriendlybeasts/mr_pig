@@ -346,7 +346,7 @@ uncss:
 # Blocks should look something like this
 #   1. LANG = `css` or `js`
 #   2. ROOT = the root path for files in the block
-#      (could be `public_html`, if blank, leave out the `()`)
+#      (could be `html`, if blank, leave out the `()`)
 #   3. PATH  = the path to the built file, relative to `dist` (defined above).
 #   4. THEME = your theme folder
 #
@@ -358,7 +358,7 @@ uncss:
 #
 # # JavaScript example
 # ```lang-html
-# <!-- build:js(public_html) /_themes/acadia/js/acadia.js -->
+# <!-- build:js(html) /_themes/acadia/js/acadia.js -->
 # <script src="/_themes/acadia/js/acadia.js"></script>
 # <script src="/_themes/acadia/js/some-other.js"></script>
 # <!-- endbuild -->
@@ -366,7 +366,7 @@ uncss:
 #
 # # CSS example
 # ```lang-html
-# <!-- build:css(public_html) /_themes/acadia/css/acadia.css -->
+# <!-- build:css(html) /_themes/acadia/css/acadia.css -->
 # <link rel="stylesheet" href="/_themes/acadia/css/bootstrap.css">
 # <link rel="stylesheet" href="/_themes/acadia/css/acadia.css">
 # <!-- endbuild -->
