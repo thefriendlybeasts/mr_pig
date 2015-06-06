@@ -11,6 +11,7 @@ Mr. Pig is a YAML-configurable [Grunt](http://gruntjs.com/) setup for [Statamic]
 - Minification and concatenation of JavaScript/CSS
 - Image optimization
 - CSS post-processing to removed unused CSS (Extremely helpful with frameworks like Bootstrap and Foundation) and add vendor prefixes
+- Deployments via Git (requires shell access to your server)
 
 
 
@@ -62,7 +63,7 @@ In order to keep things organized, Mr. Pig is designed to be installed above-roo
 
 ```
 mr_pig/
-public_html/
+html/
   _add-ons/
   _app
   _config
@@ -73,7 +74,7 @@ mr_pig.yaml
 package.json
 ```
 
-If you prefer a sty of directories, open `mr_pig.yaml`, and change `local: public_html` -> `local: ./`.
+If you prefer a sty of directories, open `mr_pig.yaml`, and change `local: html` -> `local: ./`.
 </aside>
 
 Once everything is in place, you can run `npm install`, which will read `package.json` and install the necessary Grunt plugins / Node packages.
@@ -129,7 +130,7 @@ cd ~/Sites/my-project
 grunt build
 ```
 
-This will create a new folder next to `public_html` that you can easily upload to your server or serve via [Vagrant](https://www.vagrantup.com/) (check out our [Vagrant setup for Statamic](https://github.com/thefriendlybeasts/vagrant-statamic)), MAMP, XAMP, or whatever you use to run a local server.
+This will create a new folder next to `html` that you can easily upload to your server or serve via [Vagrant](https://www.vagrantup.com/) (check out our [Vagrant setup for Statamic](https://github.com/thefriendlybeasts/vagrant-statamic)), MAMP, XAMP, or whatever you use to run a local server.
 
 
 
