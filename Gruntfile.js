@@ -11,6 +11,11 @@ module.exports = function(grunt) {
   mrpig['browser']   = 'Google Chrome Canary';
   mrpig['local_url'] = 'http://localhost:8080';
 
+  // Set empty values for potentially absent options.
+  mrpig['ssh']         = {};
+  mrpig['ssh']['user'] = '';
+  mrpig['ssh']['host'] = '';
+
   // Overwrite default preferences.
   mrpig = mergeObjects(mrpig, mrpigPrefs);
 
