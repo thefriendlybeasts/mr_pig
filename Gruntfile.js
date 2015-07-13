@@ -4,8 +4,23 @@ module.exports = function(grunt) {
 
 
   // Load the config files.
-  var mrpig      = grunt.file.readYAML('mr_pig/mr_pig.yaml');
-  var mrpigPrefs = grunt.file.readYAML('mr_pig/mr_pig.preferences.yaml');
+  var mrpig = grunt.file.readYAML('mr_pig/mr_pig.yaml');
+
+  if (grunt.file.exists('mr_pig/mr_pig.preferences.yaml')) {
+    var mrpigPrefs = grunt.file.readYAML('mr_pig/mr_pig.preferences.yaml');
+
+  } else {
+    var mrpigPrefs = {};
+
+    // Inform user that they can tweak some preferences.
+    grunt.log.subhead('Mr. Pig');
+    grunt.log.writeln('-------');
+    grunt.log.writeln(
+      'You can set personal preferences for things like which browser to use during development ' +
+      'in `mr_pig/mr_pig.preferences.yaml`. See `mr_pig/mr_pig.preferences.yaml.sample`.'
+    );
+  }
+
 
   // Set default preferences.
   mrpig['browser']   = 'Google Chrome Canary';
