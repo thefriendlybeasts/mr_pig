@@ -4,8 +4,8 @@ module.exports = function(grunt) {
 
 
   // Load the config files.
-  var mrpig      = grunt.file.readYAML('mr_pig.yaml');
-  var mrpigPrefs = grunt.file.readYAML('mr_pig.preferences.yaml');
+  var mrpig      = grunt.file.readYAML('mr_pig/mr_pig.yaml');
+  var mrpigPrefs = grunt.file.readYAML('mr_pig/mr_pig.preferences.yaml');
 
   // Set default preferences.
   mrpig['browser']   = 'Google Chrome Canary';

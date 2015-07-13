@@ -69,12 +69,10 @@ html/
   _config
   …
 Gruntfile.js
-mr_pig.preferences.yaml
-mr_pig.yaml
 package.json
 ```
 
-If you prefer a sty of directories, open `mr_pig.yaml`, and change `local: html` -> `local: ./`.
+If you prefer a sty of directories, open `mr_pig/mr_pig.yaml`, and change `local: html` -> `local: ./`.
 </aside>
 
 Once everything is in place, you can run `npm install`, which will read `package.json` and install the necessary Grunt plugins / Node packages.
@@ -86,7 +84,7 @@ npm install
 
 
 ## Gitignore
-Make sure you ignore `mr_pig.preferences.yaml` and `node_modules`.
+Make sure you ignore `mr_pig/mr_pig.preferences.yaml` and `node_modules`.
 
 `mr_pig.preferences.yaml` is developer-specific so shouldn't be committed to a repo that more than one person works on.
 
@@ -138,13 +136,13 @@ This will create a new folder next to `html` that you can easily upload to your 
 
 # Configuration
 ## Browser and URL
-By default, Mr. Pig will open your site in Google Chrome Canary and use the URL http://localhost:8080 (this is where you would access your site if you used our [Vagrant setup for Statamic](https://github.com/thefriendlybeasts/vagrant-statamic)). If you prefer another browser or URL, simply open `mr_pig.preferences.yaml` and update the values to your liking.
+By default, Mr. Pig will open your site in Google Chrome Canary and use the URL http://localhost:8080 (this is where you would access your site if you used our [Vagrant setup for Statamic](https://github.com/thefriendlybeasts/vagrant-statamic)). If you prefer another browser or URL, simply open `mr_pig/mr_pig.preferences.yaml` and update the values to your liking.
 
 Technically, any option in `mr_pig.yaml` can be overridden in `mr_pig.preferences.yaml`, but you should almost **never** do this (and it's not supported). For most sites, you want all settings in `mr_pig.yaml` to be shared by everyone working on the site. `mr_pig.preferences.yaml`, on the other hand, is for personal preferences that do not affect other developers.
 
 
 ## Everything else
-Open `mr_pig.yaml` and take a look at the settings. Each setting is documented in comments alongside the setting itself.
+Open `mr_pig/mr_pig.yaml` and take a look at the settings. Each setting is documented in comments alongside the setting itself.
 
 
 ## Files and paths
