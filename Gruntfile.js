@@ -399,7 +399,7 @@ module.exports = function(grunt) {
       configFiles: {
         files: [
           'Gruntfile.js',
-          'mr_pig.yaml'
+          'mr_pig/mr_pig.yaml'
         ]
       },
 
