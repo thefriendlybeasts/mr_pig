@@ -11,7 +11,7 @@ Mr. Pig is a YAML-configurable [Grunt](http://gruntjs.com/) setup for [Statamic]
 - Minification and concatenation of JavaScript/CSS
 - Image optimization
 - CSS post-processing to removed unused CSS (Extremely helpful with frameworks like Bootstrap and Foundation) and add vendor prefixes
-- Deployments via Git (requires shell access to your server)
+- Deployments via Git (requires shell access to your server **OR** DeployBot account)
 
 
 
@@ -20,6 +20,7 @@ Mr. Pig is a YAML-configurable [Grunt](http://gruntjs.com/) setup for [Statamic]
 # Benefits
 - Develop and test faster
 - Serve fewer and smaller files
+- Hakuna matata
 
 
 
@@ -109,16 +110,22 @@ Because Mr. Pig uses [BrowserSync](http://www.browsersync.io/), you can also ope
 
 ```shell
 Running "browserSync:dev" (browserSync) task
+[BS] [info] Proxying: http://localhost:8080
+[BS] Access URLs:
+ -------------------------------------
+       Local: http://localhost:3000
+    External: http://10.10.10.123:3000
+ -------------------------------------
+          UI: http://localhost:3001
+ UI External: http://10.10.10.123:3001
+ -------------------------------------
+[BS] Watching files...
 
 Running "watch" task
 Waiting...
-[BS] Proxying: http://localhost:8080
-[BS] Now you can access your site through the following addresses:
-[BS] Local: >>> http://localhost:3000
-[BS] External: >>> http://10.10.10.108:3000
 ```
 
-The coolest thing about BrowserSync is that whatever you do on one device will happen  on all other devices accessing the site.
+The coolest thing about BrowserSync is that, by default, whatever you do on one device will happen on all other devices accessing the site. Visit the UI URL (http://localhost:3001, in this case) to configure some other cool stuff. A few things of note are CSS Outlining, CSS Depth Outlining, and a customizable Overlay CSS Grid, all under the **Remote Debug** tab.
 
 ## Building
 When you’re ready to push changes to a live server / test the built version of your site, just run `grunt build` in your project folder.
@@ -139,6 +146,14 @@ This will create a new folder next to `html` that you can easily upload to your 
 By default, Mr. Pig will open your site in Google Chrome Canary and use the URL http://localhost:8080 (this is where you would access your site if you used our [Vagrant setup for Statamic](https://github.com/thefriendlybeasts/vagrant-statamic)). If you prefer another browser or URL, simply open `mr_pig/mr_pig.preferences.yaml` and update the values to your liking.
 
 Technically, any option in `mr_pig.yaml` can be overridden in `mr_pig.preferences.yaml`, but you should almost **never** do this (and it's not supported). For most sites, you want all settings in `mr_pig.yaml` to be shared by everyone working on the site. `mr_pig.preferences.yaml`, on the other hand, is for personal preferences that do not affect other developers.
+
+
+## Deployments
+### Git
+Look for the instructions under `buildcontrol` in `mr_pig/mr_pig.yaml`.
+
+### DeployBot
+To deploy via DeployBot, open each file in `mr_pig/scripts/deploybot` and check out the comments at the top to learn how to use it.
 
 
 ## Everything else
