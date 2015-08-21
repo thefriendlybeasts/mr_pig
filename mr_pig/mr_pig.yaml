@@ -6,7 +6,7 @@
 
 
 
-# What folder is your site in (relative to this file)?
+# What folder is your site in (relative to Gruntfile.js)?
 # If it's the same folder, use `./`.
 local: html
 
