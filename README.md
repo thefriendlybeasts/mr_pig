@@ -173,7 +173,7 @@ copy:
 
 - `*` matches any number of characters that aren't `/`.
 - `**` is just like `*`, except that it's recursive.
-- `{}` will anything contained inside separated by commas.
+- `{}` matches anything contained inside separated by commas.
 - `!` means not.
 
 So `assets/**/*.{jpg,jpeg,png,gif}` will grab any `jpg`, `jpeg`, `png`, or `gif` anywhere in the `assets` folder.
