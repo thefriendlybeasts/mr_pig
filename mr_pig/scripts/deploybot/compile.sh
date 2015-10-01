@@ -1,5 +1,5 @@
 # Usage:
-#   - Add `sh scripts/deploybot/compile.sh` to the **Compile, compress, or minimize your code**
+#   - Add `sh mr_pig/scripts/deploybot/compile.sh` to the **Compile, compress, or minimize your code**
 #     accordion section.
 #   - Dance and rejoice in the knowledge that you are a better person.
 

@@ -2,7 +2,7 @@
 # settings on DeployBot site for more info.
 #
 # Usage:
-#   - Add `sh scripts/deploybot/post-upload.sh` to the **Run commands after new version is uploaded**
+#   - Add `sh mr_pig/scripts/deploybot/post-upload.sh` to the **Run commands after new version is uploaded**
 #     accordion section.
 #   - Pop champagne.
 
