@@ -50,7 +50,7 @@ module.exports = function(grunt) {
   );
   addToTaskList('concat:generated', mrpig.enable.usemin.js,   buildTasks);
   addToTaskList('uglify:generated', mrpig.enable.usemin.js,   buildTasks);
-  addToTaskList('cssmin:generated', mrpig.enable.usemin.css,  buildTasks);
+  addToTaskList('cssmin:build',     mrpig.enable.usemin.css,  buildTasks);
   addToTaskList(
     'usemin',
     mrpig.enable.usemin.js || mrpig.enable.usemin.css,
