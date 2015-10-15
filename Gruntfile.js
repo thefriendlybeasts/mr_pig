@@ -393,7 +393,7 @@ module.exports = function(grunt) {
         dest: mrpig.dist
       },
       options: {
-        dest: mrpig.theme_path_dist
+        dest: mrpig.dist
       }
     },
 
