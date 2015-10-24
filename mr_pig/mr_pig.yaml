@@ -321,6 +321,7 @@ uncss:
 
     ignoreSheets:
       - /fonts.googleapis.com/
+      - /use.typekit.net/
 
     # Taken from [Bootstrap](http://getbootstrap.com/css/#grid-media-queries).
     media:
