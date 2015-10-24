@@ -38,7 +38,7 @@ var file = module.exports = {
 
 
 // Convert YAML file to JSON file.
-var config      = file.read('mr_pig.yaml');
+var config      = file.read('mr_pig/mr_pig.yaml');
 var mrpig       = yaml.load(config);
 var uncssrcData = mrpig.uncss.uncssrc;
 var tempConfig  = 'mr_pig/uncssrc.temp.json';
