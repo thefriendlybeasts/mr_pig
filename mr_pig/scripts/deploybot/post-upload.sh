@@ -19,7 +19,10 @@ SITE_DIR="html"
 # Copy old users, _content, _storage, and assets.
 rsync -avv ../$PREV_RELEASE/$SITE_DIR/_config/users $SITE_DIR/_config
 rsync -avv ../$PREV_RELEASE/$SITE_DIR/_content $SITE_DIR
-rsync -avv ../$PREV_RELEASE/$SITE_DIR/_storage $SITE_DIR
+# Storage doesn't exist by default. Only try copying if it exists.
+if [ -d "../$PREV_RELEASE/$SITE_DIR/_storage" ]; then
+  rsync -avv ../$PREV_RELEASE/$SITE_DIR/_storage $SITE_DIR
+fi
 rsync -avv ../$PREV_RELEASE/$SITE_DIR/assets $SITE_DIR
 
 
@@ -29,4 +32,6 @@ chmod -R 777 $SITE_DIR/_content
 chmod -R 777 $SITE_DIR/assets
 chmod -R 755 $SITE_DIR/_config/users
 chmod -R 755 $SITE_DIR/_logs
-chmod -R 755 $SITE_DIR/_storage
+if [ -d "$SITE_DIR/_storage" ]; then
+  chmod -R 755 $SITE_DIR/_storage
+fi
