@@ -1,0 +1,16 @@
+configFiles:
+  files:
+    - Gruntfile.js
+    - mr_pig/settings.yaml
+
+
+
+
+dev:
+  files:
+    - '<%= m.local.themePath %>/scss/**/*.scss'
+  tasks:
+    - sass:dev
+    - postcss:dev
+  options:
+    atBegin: true

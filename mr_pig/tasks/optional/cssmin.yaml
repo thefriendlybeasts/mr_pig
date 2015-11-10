@@ -1,0 +1,3 @@
+# We should be able to remove this, but I'm not 100% sure yet.
+# build:
+#   src: '<%= m.dist.themePath %>/css/*.css'

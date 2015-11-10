@@ -1,0 +1,35 @@
+init:
+  description: Get started with Mr. Pig. You should only run this once per site.
+  tasks:
+    - shell:init
+
+
+build:
+  description: >
+    Run this to get your code production-ready. If using DeployBot, you should run it on
+    their server.
+  tasks:
+    - clean:build
+    - copy:statamic
+    - copy:theme
+    - copy:misc
+
+    - sass:build
+
+    - useminPrepare
+    - concat:generated
+    - uglify:generated
+    - cssmin:generated
+    - usemin
+
+    - shell:autoprefixer
+    - postcss:build
+
+
+serve:
+  - browserSync:dev
+  - watch:dev
+
+
+default:
+  - serve

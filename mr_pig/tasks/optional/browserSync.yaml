@@ -1,0 +1,14 @@
+options:
+  browser:   '<%= m.browser %>'
+  proxy:     '<%= m.url.local %>'
+  watchTask: true
+
+
+
+
+dev:
+  bsFiles:
+    src:
+      - '<%= m.local.themePath %>/css/**/*.css'
+      - '<%= m.local.themePath %>/**/*.{js,html}'
+      - '<%= m.local.root %>/_content/**/*.md'

@@ -1,0 +1,8 @@
+# Get Mr. Pig ready for use.
+init:
+  command: ls
+
+
+# Update the caniuse db for autoprefixer.
+autoprefixer:
+  command: 'npm update caniuse-db'

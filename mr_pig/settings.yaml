@@ -1,0 +1,80 @@
+# If you don't want to use Google Chrome Canary while developing and your local URL isn't
+# http://localhost:8080, edit the settings in mr_pig/preferences.yaml.
+# ---
+
+
+
+
+local:
+  # What folder is your site in (relative to Gruntfile.js)? If it's the same folder, use `./`.
+  root: html
+
+dist:
+  # What would you like to name the folder that holds the built version of your site? I like "Gus."
+  root: dist
+
+# Your Statamic theme folder.
+theme: acadia
+
+
+
+
+
+# PLUGIN CONFIG
+pi:
+  copy:
+    # Which files do you need copied over to the built version of your site
+    # (relative to `local:root`)?
+    # Statamic core files and your theme should be taken care of already.
+    src:
+      - assets/**/*.{jpg,jpeg,png,gif}
+      - '!assets/img/resized/*.{jpg,jpeg,png,gif}'
+      - assets/img/resized/index.html
+      - '{apple-touch-icon,favicon,mstile}*'
+      - browserconfig.xml
+      - humans.txt
+      - robots.txt
+
+
+  autoprefixer:
+    # Which browsers do you want to support (see https://github.com/ai/browserslist)?
+    browsers:
+      - last 2 versions
+      - ie > 9
+
+
+  # usemin looks through your HTML for blocks of script tags to concatenate
+  # and minify.
+  #
+  # Blocks should look something like this
+  #   1. LANG = `css` or `js`
+  #   2. ROOT = the root path for files in the block
+  #      (could be `html`, if blank, leave out the `()`)
+  #   3. PATH  = the path to the built file, relative to `dist` (defined above).
+  #   4. THEME = your theme folder
+  #
+  # ```lang-html
+  # <!-- build:LANG(ROOT) PATH -->
+  # FILES
+  # <!-- endbuild -->
+  # ```
+  #
+  # # JavaScript example
+  # ```lang-html
+  # <!-- build:js(html) /_themes/acadia/js/acadia.js -->
+  # <script src="/_themes/acadia/js/acadia.js"></script>
+  # <script src="/_themes/acadia/js/some-other.js"></script>
+  # <!-- endbuild -->
+  # ```
+  #
+  # # CSS example
+  # ```lang-html
+  # <!-- build:css(html) /_themes/acadia/css/acadia.css -->
+  # <link rel="stylesheet" href="/_themes/acadia/css/bootstrap.css">
+  # <link rel="stylesheet" href="/_themes/acadia/css/acadia.css">
+  # <!-- endbuild -->
+  # ```
+  usemin:
+    # Where are your blocks (relative to your theme folder)?
+    src:
+      - layouts/default.html

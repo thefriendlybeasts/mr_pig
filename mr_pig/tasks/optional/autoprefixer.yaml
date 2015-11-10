@@ -1,0 +1,21 @@
+options:
+  browsers: '<%= m.autoprefixer.browsers %>'
+
+
+
+
+# Autoprefix while developing.
+dev:
+  files:
+    -
+      expand: true
+      cwd:    '<%= m.local.themePath %>/css/'
+      dest:   '<%= m.dist.themePath %>/css/'
+      src:    '*.css'
+  options:
+    map: true
+
+
+# Autoprefix for built sites.
+build:
+  src: '<%= m.dist.themePath %>/css/**/*.css'

@@ -1,0 +1,8 @@
+html:
+  files:
+    -
+      expand: true,
+      cwd:    '<%= m.dist.themePath %>'
+      dest:   '<%= m.local.themePath %>/css'
+      src:
+        - '<%= m.pi.usemin.src %>'

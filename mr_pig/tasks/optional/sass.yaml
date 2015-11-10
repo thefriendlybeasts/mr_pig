@@ -1,0 +1,27 @@
+dev:
+  files:
+    -
+      expand: true,
+      cwd:    '<%= m.local.themePath %>/scss'
+      dest:   '<%= m.local.themePath %>/css'
+      ext:    '.css'
+      src:
+        - '*.scss'
+  options:
+    lineNumbers: true
+    style:       expanded
+
+
+build:
+  files:
+    -
+      expand: true,
+      cwd:    '<%= m.local.themePath %>/scss'
+      dest:   '<%= m.dist.themePath %>/css'
+      ext:    '.css'
+      src:
+        - '*.scss'
+  options:
+    sourcemap: none
+    style:     compressed
+    update:    true

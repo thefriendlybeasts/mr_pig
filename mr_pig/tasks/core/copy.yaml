@@ -1,0 +1,48 @@
+options:
+  mode:      true
+  timestamp: true
+
+
+
+
+# Copy all Statamic core files.
+statamic:
+  files:
+    -
+      expand: true
+      cwd:    '<%= m.local.root %>/'
+      dest:   '<%= m.dist.root %>'
+      src:
+        - '_add-ons/**'
+        - '_app/**'
+        - '_cache/.gitkeep'
+        - '_config/**'
+        - '_content/**'
+        - '_logs/.gitkeep'
+        - '_storage/.gitkeep'
+        - 'admin/**'
+        - '.htaccess'
+        - 'admin.php'
+        - 'index.php'
+
+
+# Copy all theme files.
+theme:
+  files:
+    -
+      expand: true
+      cwd:    '<%= m.local.themePath %>/'
+      dest:   '<%= m.dist.themePath %>'
+      src:
+        - '{layouts,partials,templates}/**/*.html'
+        - 'css/fonts/**'
+        - 'img/**'
+        - '*.yaml'
+
+
+# Copy dev-set files.
+misc:
+  expand: true
+  cwd:    '<%= m.local.root %>'
+  dest:   '<%= m.dist.root %>'
+  src:    '<%= m.pi.copy.src %>'

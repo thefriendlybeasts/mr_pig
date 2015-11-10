@@ -1,5 +1,4 @@
-# To use your own preferences, make a copy of this file and rename it `mr_pig.preferences.yaml`.
-
+# To use your own preferences, make a copy of this file and rename it `preferences.yaml`.
 
 
 
@@ -8,4 +7,5 @@
 browser: Google Chrome Canary
 
 # What's your site's local URL (no trailing slash!)?
-local_url: http://localhost:8080
+url:
+  local: http://localhost:8080
