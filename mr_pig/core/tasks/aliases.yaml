@@ -1,7 +1,9 @@
 init:
   description: Get started with Mr. Pig. You should only run this once per site.
   tasks:
-    - shell:init
+    # - shell:init
+    - prompt:init
+    - shell:npm_install
 
 
 build:

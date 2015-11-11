@@ -1,6 +1,6 @@
 # Get Mr. Pig ready for use.
-init:
-  command: ls
+npm_install:
+  command: 'echo There seems to have been an error.'
 
 
 # Update the caniuse db for autoprefixer.

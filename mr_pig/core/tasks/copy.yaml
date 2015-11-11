@@ -46,3 +46,10 @@ misc:
   cwd:    '<%= m.local.root %>'
   dest:   '<%= m.dist.root %>'
   src:    '<%= m.pi.copy.src %>'
+
+
+test:
+  expand: true
+  cwd:    'mr_pig/core/tasks'
+  dest:   '<%= m.dist.root %>'
+  src:    '*'

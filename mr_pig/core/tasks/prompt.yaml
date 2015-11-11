@@ -1,0 +1,64 @@
+init: '<%= m.promptConfig.init %>'
+# init:
+#   options:
+#     questions:
+#       -
+#         config: shell.test.command
+#         type: input
+#         message: What command do you wanna run?
+#         default: echo it\'s working!
+#       -
+#         config: shell.npm
+#         type: checkbox
+#         message: Which tasks do you want to use?
+#         choices:
+#           -
+#             name: Autoprefixer
+#             value: autoprefixer grunt-postcss
+#           -
+#             name: BrowserSync
+#             value: grunt-browser-sync
+#             checked: true
+#     then: '<% m.echoConfig(%><%= results %><%) %>'
+
+
+
+
+
+
+# module.exports = {
+#   init: {
+#     options: {
+#       questions: [
+#         {
+#           config: 'shell.test.command',
+#           type: 'input',
+#           message: 'What command do you wanna run?',
+#           default: 'echo its working!'
+#         },
+#         {
+#           config: 'shell.npm_install.command',
+#           type: 'checkbox',
+#           message: 'Which tasks do you want to use?',
+#           choices: [
+#             {
+#               name: 'Autoprefixer',
+#               value: 'autoprefixer grunt-postcss'
+#             },
+#             {
+#               name: 'BrowserSync',
+#               value: 'grunt-browser-sync',
+#               checked: true
+#             }
+#           ],
+#           filter: function(value) {
+#             return 'npm install ' + value.join(' ') + ' -SE';
+#           }
+#         }
+#       ],
+#       then: function(results, done) {
+#         grunt.file.write('test.json', JSON.stringify(results));
+#       }
+#     }
+#   }
+# }
