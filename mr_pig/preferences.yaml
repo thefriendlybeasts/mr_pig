@@ -1,6 +1,0 @@
-# Which browser would you like to view your site in while you're working?
-browser: Google Chrome Canary
-
-# What's your site's local URL (no trailing slash!)?
-url:
-  local: http://localhost:8080
