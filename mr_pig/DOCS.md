@@ -153,7 +153,7 @@ Technically, any option in `mr_pig.yaml` can be overridden in `mr_pig.preference
 Look for the instructions under `buildcontrol` in `mr_pig/mr_pig.yaml`.
 
 ### DeployBot
-To deploy via DeployBot, open each file in `mr_pig/scripts/deploybot` and check out the comments at the top to learn how to use it.
+To deploy via DeployBot, open each file in `mr_pig/core/scripts/deploybot` and check out the comments at the top to learn how to use it.
 
 
 ## Everything else
