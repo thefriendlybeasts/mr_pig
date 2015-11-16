@@ -23,7 +23,8 @@ module.exports = function(grunt) {
 
   // Set default preferences.
   mrPig.browser   = 'Google Chrome Canary';
-  mrPig.local.url = 'http://localhost:8080';
+  mrPig.url       = {};
+  mrPig.url.local = 'http://localhost:8080';
 
 
   // Set vars for use in tasks.
