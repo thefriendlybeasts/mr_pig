@@ -3,6 +3,8 @@ module.exports = function(grunt) {
 
   // Load the config files.
   var mrPig = grunt.file.readYAML('mr_pig/settings.yaml');
+  // These be the plugins we need for each option.
+  mrPig.pkgs = grunt.file.readYAML('mr_pig/core/packages.yaml');
 
   if (grunt.file.exists('mr_pig/preferences.yaml')) {
     var mrPigPrefs = grunt.file.readYAML('mr_pig/preferences.yaml');
@@ -44,60 +46,8 @@ module.exports = function(grunt) {
 
 
 
-  // Set up prompts.
-  // These be the plugins we need for each option.
-  mrPig.pkgs = grunt.file.readYAML('mr_pig/core/packages.yaml');
-
-  mrPig.promptConfig = {};
-  mrPig.promptConfig.init = {
-    options: {
-      // The `config`s in these `questions` must match up to a key in `mr_pig/core/packages.yaml`
-      // within the `prompt.pkgs` namespace..
-      questions: [
-        {
-          config: 'prompt.pkgs.sass',
-          type: 'confirm',
-          message: 'Do you use 🐍 Sass?',
-          default: true
-        },
-        {
-          config: 'prompt.pkgs.autoprefixer',
-          type: 'confirm',
-          message: 'How about Autoprefixer?',
-          default: true
-        },
-        {
-          config: 'prompt.pkgs.watch',
-          type: 'confirm',
-          message: 'Browsersync? (live reload, synced actions across devices, etc.)',
-          default: true
-        },
-        {
-          config: 'prompt.pkgs.usemin',
-          type: 'confirm',
-          message: 'Concat, minify, and uglify before serving code? (grunt-usemin)',
-          default: true
-        }
-      ],
-
-
-      then: function(results, done) {
-        var installList = mrPig.pkgs.default.join(' ') + ' ';
-        for (var group in grunt.config('prompt.pkgs')) {
-          // Append packages to the install list if the dev chose this group.
-          installList += grunt.config('prompt.pkgs')[group] ? mrPig.pkgs[group].join(' ') + ' ' : '';
-        }
-
-        grunt.config.set('shell.npm_install.command', 'npm install ' + installList + ' -SE');
-      }
-    }
-  };
-
-
-
-
   require('load-grunt-config')(grunt, {
-    configPath: 'mr_pig/core/tasks',
+    configPath: path.join(process.cwd(), 'mr_pig/core/tasks'),
     overridePath: 'mr_pig/tasks',
     config: {
       m: mrPig
