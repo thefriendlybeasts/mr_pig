@@ -65,32 +65,6 @@ module.exports = function(grunt) {
 
 // HELPERS
 /**
- * Prepend each value in an array with a string, then return the array.
- * @param {str} str The string to prepend.
- * @param {arr} arr The array whose values need appendin'.
- */
-function prependArray(str, arr) {
-  for (var i in arr) {
-    arr[i] = str + arr[i];
-  }
-
-  return arr;
-}
-
-
-/**
- * Push a value to an array, then return the array.
- * @param {arr} arr The array to push to.
- * @param {val} val The value to push to the array.
- */
-function pushReturn(arr, val) {
-  arr.push(val);
-
-  return arr;
-}
-
-
-/**
  * Recursively merge the properties of two objects into the first, then return the object.
  * @param {object} obj1 The first object.
  * @param {object} obj2 The second object.
