@@ -391,6 +391,9 @@ module.exports = function(grunt) {
       html: {
         src:  prependArray(mrpig.theme_path_dist, mrpig.usemin.src),
         dest: mrpig.dist
+      },
+      options: {
+        dest: mrpig.dist
       }
     },
 
