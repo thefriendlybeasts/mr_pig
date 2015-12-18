@@ -1,6 +1,6 @@
-Mr. Pig is a YAML-configurable [Grunt](http://gruntjs.com/) setup for
-[Statamic](http://statamic.com/), complete with deployments. It aims to simplify using Grunt in your
-Statamic projects to the point that you don't need to understand how Grunt works.
+Mr. Pig is a YAML-configurable [Grunt][grunt] setup for [Statamic][statamic], complete with
+deployments. It aims to simplify using Grunt in your Statamic projects to the point that you don't
+need to understand how Grunt works.
 
 *I do however recommend gaining a fuller understanding.*
 
@@ -38,22 +38,22 @@ so hard.**
 
 If you have trouble with these instructions, get the instructions straight from the boar's mouth:
 
-- [Installing npm](https://docs.npmjs.com/getting-started/installing-node)
-- [Installing Grunt](http://gruntjs.com/getting-started)
+- [Installing npm][npm-installation]
+- [Installing Grunt][grunt-getting-started]
 
 
 ## Installing npm
 npm is the package manager (think Bower) for Node.js, so installing npm is really a by-product of
 installing Node.js.
 
-Just visit the [Node.js site](http://nodejs.org/) and click the wonderfully-lime “Install” button to
+Just visit the [Node.js site][node] and click the wonderfully-lime “Install” button to
 download an installer and run it.
 
 
 ## Installing Grunt
-[Grunt recommends](http://gruntjs.com/getting-started) that you install the CLI globally and the
-task runner on a per-project basis. You only have to install the CLI once and installing Mr. Pig
-takes care of the task runner for you.
+[Grunt recommends][grunt-getting-started] that you install the CLI globally and the task runner on a
+per-project basis. You only have to install the CLI once and installing Mr. Pig takes care of the
+task runner for you.
 
 To install the Grunt CLI, run the following command in Terminal (or whatever crazy command shell you
 might use).
@@ -110,7 +110,7 @@ grunt init
 ## Gitignore
 Make sure you ignore `mr_pig/preferences.yaml` and `node_modules`.
 
-`preferences.yaml` contains developer-specific info so you shouldn't committ it to a repo that more
+`preferences.yaml` contains developer-specific info so you shouldn't commit it to a repo that more
 than one person works on.
 
 You should never, ever, ever, ever, ever edit anything in `node_modules` and it's all installed by
@@ -131,8 +131,8 @@ grunt serve
 This runs the default Grunt task which opens your site up in your preferred browser and reloads the
 page/CSS when you make changes.
 
-Because Mr. Pig uses [BrowserSync](http://www.browsersync.io/), you can also open your site up on
-any device on the same network. Just use the URL provided to you in Terminal after you run `grunt`
+Because Mr. Pig uses [BrowserSync][browsersync], you can also open your site up on any device on the
+same network. Just use the URL provided to you in Terminal after you run `grunt`
 (http://10.10.10.108:3000 in this case).
 
 ```shell
@@ -167,8 +167,7 @@ grunt build
 ```
 
 This creates a new folder next to `html` that you can easily upload to your server or serve via
-[Vagrant](https://www.vagrantup.com/) (check out our
-[Vagrant setup for Statamic](https://github.com/thefriendlybeasts/vagrant-statamic)), MAMP, XAMP, or
+[Vagrant][vagrant] (check out our [Vagrant setup for Statamic][vagrant-statamic], MAMP, XAMP, or
 whatever you use to run a local server.
 
 
@@ -178,9 +177,8 @@ whatever you use to run a local server.
 ## Browser and URL
 By default, Mr. Pig opens your site in Google Chrome Canary and use the URL
 http://localhost:8080 (access your site here if you use our
-[Vagrant setup for Statamic](https://github.com/thefriendlybeasts/vagrant-statamic)). If you prefer
-another browser or URL, simply open `mr_pig/preferences.yaml` and update the values to
-your liking.
+[Vagrant setup for Statamic][vagrant-statamic]). If you prefer another browser or URL, simply open
+`mr_pig/preferences.yaml` and update the values to your liking.
 
 Technically, you can override any option in `settings.yaml` in `preferences.yaml`, but you should
 almost **never** do this (and we don't support it). For most sites, you want to share all options in
@@ -199,8 +197,8 @@ comments alongside the setting itself.
 
 
 ## Files and paths
-Grunt allows [globbing](http://gruntjs.com/configuring-tasks#globbing-patterns), to make specifying
-files and paths more practical. You can find examples of this under `copy`.
+Grunt allows [globbing][grunt-globbing], to make specifying files and paths more practical. You can
+find examples of this under `copy`.
 
 ```yaml
 pi:
@@ -221,7 +219,7 @@ So `assets/**/*.{jpg,jpeg,png,gif}` grabs any `jpg`, `jpeg`, `png`, or `gif` any
 
 …but `!assets/img/resized/*.{jpg,jpeg,png,gif}` tells Grunt to ignore any of those files in the
 `resized` folder, where Statamic saves
-[transformed](http://statamic.com/learn/documentation/tags/transform) images.
+[transformed][statamic-transform] images.
 
 `{apple-touch-icon,favicon,mstile}*` looks for any file in the root that begins with
 `apple-touch-icon`, `favicon`, or `mstile`.
@@ -230,4 +228,20 @@ So `assets/**/*.{jpg,jpeg,png,gif}` grabs any `jpg`, `jpeg`, `png`, or `gif` any
 
 
 # Thanks
-Sponsored in part by [LionsMouth Digital](http://lionsmouthdigital.com).
+Sponsored in part by [LionsMouth Digital][lmd].
+
+
+
+
+[browsersync]: http://www.browsersync.io/
+[docs]: mr_pig/DOCS.md
+[grunt]: http://gruntjs.com/
+[grunt-getting-started]: http://gruntjs.com/getting-started
+[grunt-globbing]: http://gruntjs.com/configuring-tasks#globbing-patterns
+[lmd]: http://lionsmouthdigital.com
+[node]: http://nodejs.org/
+[npm-installation]: https://docs.npmjs.com/getting-started/installing-node
+[statamic]: http://statamic.com/
+[statamic-transform]: http://statamic.com/learn/documentation/tags/transform
+[vagrant]: https://www.vagrantup.com/
+[vagrant-statamic]: https://github.com/thefriendlybeasts/vagrant-statamic
