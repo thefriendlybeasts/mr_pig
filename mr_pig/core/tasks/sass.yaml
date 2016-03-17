@@ -1,8 +1,19 @@
+options:
+  # Makes it easier to include files from third-party projects installed via npm.
+  # Ex.
+  #   1. `npm install hex-framework`
+  #   2. Add `@import 'hex-framework/scss/hex';` to
+  #      `html/site/themes/{{ your_theme }}/sass/{{ your_theme }}.scss`.
+  loadPath: 'node_modules'
+
+
+
+
 dev:
   files:
     -
       expand: true,
-      cwd:    '<%= m.local.themePath %>/scss'
+      cwd:    '<%= m.local.themePath %>/sass'
       dest:   '<%= m.local.themePath %>/css'
       ext:    '.css'
       src:
@@ -16,7 +27,7 @@ build:
   files:
     -
       expand: true,
-      cwd:    '<%= m.local.themePath %>/scss'
+      cwd:    '<%= m.local.themePath %>/sass'
       dest:   '<%= m.dist.themePath %>/css'
       ext:    '.css'
       src:

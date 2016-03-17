@@ -28,8 +28,8 @@ module.exports = function(grunt) {
 
 
   // Set vars for use in tasks.
-  mrPig.local.themePath = path.join(mrPig.local.root, '_themes', mrPig.theme);
-  mrPig.dist.themePath  = path.join(mrPig.dist.root,  '_themes', mrPig.theme);
+  mrPig.local.themePath = path.join(mrPig.local.root, 'site/themes', mrPig.theme);
+  mrPig.dist.themePath  = path.join(mrPig.dist.root,  'site/themes', mrPig.theme);
 
 
   // Overwrite defaults with user preferences.
@@ -76,7 +76,7 @@ function mergeObjects(obj1, obj2) {
       // Property in destination object set; update its value.
       obj1[p] = obj2[p].constructor == Object ? mergeObjects(obj1[p], obj2[p]) : obj2[p];
 
-    } catch(e) {
+    } catch (e) {
       // Property in destination object not set; create it and set its value.
       obj1[p] = obj2[p];
     }
