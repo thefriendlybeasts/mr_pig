@@ -8,7 +8,7 @@ configFiles:
 
 dev:
   files:
-    - '<%= m.local.themePath %>/scss/**/*.scss'
+    - '<%= m.local.themePath %>/sass/**/*.scss'
   tasks:
     - sass:dev
     - postcss:dev
