@@ -39,9 +39,9 @@ module.exports = function(grunt, options) {
             installList += grunt.config('prompt.pkgs')[group] ? options.m.pkgs[group].join(' ') + ' ' : '';
           }
 
-          grunt.config.set('shell.npm_install.command', 'npm install ' + installList + ' -SE');
+          grunt.config.set('shell.npm_install.command', 'npm install ' + installList + ' -DE');
         }
       }
     }
-  }
-}
+  };
+};
