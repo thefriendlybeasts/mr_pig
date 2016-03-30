@@ -1,5 +1,6 @@
 # Get Mr. Pig ready for use.
 npm_install:
+  # If `prompt:init` goes well, the command is overwritten (see prompt.js).
   command: 'echo There seems to have been an error.'
 
 
