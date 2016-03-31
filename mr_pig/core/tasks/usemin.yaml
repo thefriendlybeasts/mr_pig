@@ -5,4 +5,4 @@ html:
       cwd:    '<%= m.dist.themePath %>'
       dest:   '<%= m.dist.root %>'
       src:
-        - '<%= m.pi.usemin.src %>'
+        - '<%= m.tasks.build.usemin.files %>'

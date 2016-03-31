@@ -1,22 +1,37 @@
 options:
+  # Processors need special handling in `Gruntfile.js`. See the autoprefixer example.
   processors:
-    - '<%= m.autoprefixer.browsers %>'
+    - '<%= m.tasks.postcss.processors.autoprefixer %>'
 
 
 
 
 # Autoprefix while developing.
-dev:
+serve:
   files:
     -
       expand: true
       cwd:    '<%= m.local.themePath %>/css/'
-      dest:   '<%= m.dist.themePath %>/css/'
-      src:    '*.css'
+      src:
+        - '*.css'
+        - '!*.prefixed.css'
+      dest:   '<%= m.local.themePath %>/css/'
+      ext:    '<%= m.tasks.postcss.autoprefixer.ext %>'
   options:
     map: true
 
 
 # Autoprefix for built sites.
 build:
-  src: '<%= m.dist.themePath %>/css/**/*.css'
+  files:
+    -
+      expand: true
+      cwd:    '<%= m.dist.themePath %>/css/'
+      src:
+        - '*.css'
+        - '!*.prefixed.css'
+      dest:   '<%= m.dist.themePath %>/css/'
+      # Yes, this should check the `m.tasks.serve`, not `m.tasks.build`. This keeps Mr. Pig users
+      # from having to think much about the flow from source styles to compiled styles and works
+      # whether or not they use Usemin's build blocks.
+      ext:    '<%= m.tasks.postcss.autoprefixer.ext %>'

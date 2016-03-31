@@ -6,9 +6,6 @@ options:
 
 
 
-dev:
+serve:
   bsFiles:
-    src:
-      - '<%= m.local.themePath %>/css/**/*.css'
-      - '<%= m.local.themePath %>/**/*.{js,html,php}'
-      - '<%= m.local.root %>/_content/**/*.md'
+    src: '<%= m.tasks.serve.browserSync.files %>'

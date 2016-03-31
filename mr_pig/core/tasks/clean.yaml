@@ -1,6 +1,0 @@
-build:
-  src:
-    - '<%= m.dist.root %>/assets/resized/*'
-    - '!<%= m.dist.root %>/assets/resized/.gitkeep'
-    - '<%= m.dist.root %>/_cache/**/*'
-    - '!<%= m.dist.root %>/_cache/**/.gitkeep'

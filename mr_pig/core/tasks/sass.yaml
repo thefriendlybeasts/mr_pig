@@ -9,7 +9,7 @@ options:
 
 
 
-dev:
+serve:
   files:
     -
       expand: true,

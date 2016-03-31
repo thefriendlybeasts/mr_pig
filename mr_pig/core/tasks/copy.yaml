@@ -5,51 +5,54 @@ options:
 
 
 
-# Copy all Statamic core files.
-statamic:
-  files:
-    -
-      expand: true
-      cwd:    '<%= m.local.root %>/'
-      dest:   '<%= m.dist.root %>'
-      src:
-        - '_add-ons/**'
-        - '_app/**'
-        - '_cache/.gitkeep'
-        - '_config/**'
-        - '_content/**'
-        - '_logs/.gitkeep'
-        - '_storage/.gitkeep'
-        - 'admin/**'
-        - '.htaccess'
-        - 'admin.php'
-        - 'index.php'
-
-
-# Copy all theme files.
-theme:
-  files:
-    -
-      expand: true
-      cwd:    '<%= m.local.themePath %>/'
-      dest:   '<%= m.dist.themePath %>'
-      src:
-        - '{layouts,partials,templates}/**/*.html'
-        - 'css/fonts/**'
-        - 'img/**'
-        - '*.yaml'
-
-
 # Copy dev-set files.
-misc:
+build:
   expand: true
   cwd:    '<%= m.local.root %>'
   dest:   '<%= m.dist.root %>'
-  src:    '<%= m.pi.copy.src %>'
+  src:    '<%= m.tasks.build.copy.files %>'
 
 
-test:
+# Copy content files.
+content_architecture:
   expand: true
-  cwd:    'mr_pig/core/tasks'
+  cwd:    '<%= m.local.root %>'
   dest:   '<%= m.dist.root %>'
-  src:    '*'
+  src:
+    - site/content/{collections,taxonomies}/**/folder.yaml
+    - site/storage/**/container.yaml
+
+
+# Copy the specified `.env`.
+env:
+  src:    '<%= m.local.root %>/<%= m.tasks.build.copy.env %>'
+  dest:   '<%= m.dist.root %>/.env'
+  nonull: true
+
+
+# Copy all files necessary to make Statamic work.
+statamic:
+  expand: true
+  cwd:    '<%= m.local.root %>/'
+  dest:   '<%= m.dist.root %>'
+  src:
+    - local/.gitignore
+    - site/**
+    - '!site/{content,storage,tests,themes}/**'
+    - statamic/**
+    - .htaccess
+    - index.php
+    - please
+
+
+# Copy all theme files not otherwise moved over (Sass -> CSS, minified JS, etc).
+theme:
+  expand: true
+  cwd:    '<%= m.local.themePath %>/'
+  dest:   '<%= m.dist.themePath %>'
+  src:
+    - css/fonts/**
+    - img/**
+    - '{layouts,partials,templates}/**/*.{html,php}'
+    - settings/**
+    - meta.yaml

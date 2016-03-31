@@ -2,7 +2,7 @@ html:
   files:
     -
       expand: true,
-      cwd:    '<%= m.dist.themePath %>'
-      dest:   '<%= m.local.themePath %>/css'
+      cwd:    '<%= m.local.themePath %>'
+      dest:   '<%= m.dist.themePath %>'
       src:
-        - '<%= m.pi.usemin.src %>'
+        - '<%= m.tasks.build.usemin.files %>'

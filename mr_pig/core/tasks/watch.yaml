@@ -6,11 +6,10 @@ configFiles:
 
 
 
-dev:
-  files:
-    - '<%= m.local.themePath %>/sass/**/*.scss'
+sass:
+  files: '<%= m.tasks.serve.watch.sass.files %>'
   tasks:
-    - sass:dev
-    - postcss:dev
+    - sass:serve
+    - postcss:serve
   options:
     atBegin: true

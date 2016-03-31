@@ -16,7 +16,8 @@ module.exports = function(grunt) {
     grunt.log.writeln('-------');
     grunt.log.writeln(
       'You can set personal preferences for things like which browser to use during development ' +
-      'in `mr_pig/preferences.yaml`. See `mr_pig/preferences.sample.yaml`.'
+      'in `mr_pig/preferences.yaml`. See `mr_pig/preferences.sample.yaml`.' +
+      '\n'
     );
   }
 
@@ -36,13 +37,12 @@ module.exports = function(grunt) {
   mrPig = mergeObjects(mrPig, mrPigPrefs);
 
 
-  // Prepare PostCSS tasks if installed.
-  if (grunt.file.exists('node_modules/grunt-postcss') &&
-      grunt.file.exists('node_modules/autoprefixer')
-  ) {
-    mrPig.autoprefixer          = {};
-    mrPig.autoprefixer.browsers = require('autoprefixer')(mrPig.pi.autoprefixer.browsers);
-  }
+  // Prepare any task configs which need preparing outside of `mr_pig/core/tasks`.
+  mrPig.tasks.postcss.processors = {};
+  // Prepare PostCSS processors if installed.
+  mrPig.tasks.postcss.processors.autoprefixer = grunt.file.exists('node_modules/autoprefixer')
+    ? require('autoprefixer')(mrPig.tasks.postcss.autoprefixer.browsers)
+    : {};
 
 
 
@@ -67,6 +67,7 @@ module.exports = function(grunt) {
 // HELPERS
 /**
  * Recursively merge the properties of two objects into the first, then return the object.
+ *
  * @param {object} obj1 The first object.
  * @param {object} obj2 The second object.
  */

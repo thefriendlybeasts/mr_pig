@@ -1,22 +1,31 @@
 init:
   description: Get started with Mr. Pig. You should only run this once per site.
   tasks:
-    # - shell:init
     - prompt:init
     - shell:npm_install
 
 
+serve:
+  description: Tell Mr. Pig to watch and act upon file changes while you develop your site.
+  tasks:
+    - browserSync:serve
+    - watch:sass
+
+
 build:
   description: >
-    Run this to get your code production-ready. If using DeployBot, you should run it on
-    their server.
+    Get your code production-ready. If using a deployment service like DeployBot or Envoyer, you
+    should run this task on their server.
   tasks:
-    - clean:build
+    - copy:build
+    - copy:content_architecture
+    - copy:env
     - copy:statamic
     - copy:theme
-    - copy:misc
 
     - sass:build
+    - shell:autoprefixer
+    - postcss:build
 
     - useminPrepare
     - concat:generated
@@ -24,14 +33,16 @@ build:
     - cssmin:generated
     - usemin
 
-    - shell:autoprefixer
-    - postcss:build
+    - shell:clear_all_caches
 
 
-serve:
-  - browserSync:dev
-  - watch:dev
+help:
+  description: Show this help info.
+  tasks:
+    - shell:help
 
 
 default:
-  - serve
+  description: Don't run `grunt serve`! Who's got time for that? Just run `grunt`.
+  tasks:
+    - serve

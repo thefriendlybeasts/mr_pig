@@ -7,3 +7,13 @@ npm_install:
 # Update the caniuse db for autoprefixer.
 autoprefixer:
   command: 'npm update caniuse-db'
+
+
+# Alias `grunt help` to `grunt -h`.
+help:
+  command: 'grunt -h'
+
+
+# Clear ALL THE CACHES Statamic has to offer.
+clear_all_caches:
+  command: 'php <%= m.dist.root %>/please clear:cache && php <%= m.dist.root %>/please clear:glide && php <%= m.dist.root %>/please clear:stache && php <%= m.dist.root %>/please clear:static'
