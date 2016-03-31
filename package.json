@@ -1,7 +1,7 @@
 {
   "name": "mr-pig",
   "description": "a YAML-configurable Grunt setup for Statamic, complete with deployments",
-  "version": "0.3.3",
+  "version": "1.0.0-alpha",
   "author": {
     "name": "The Friendly Beasts",
     "url": "https://github.com/thefriendlybeasts"
