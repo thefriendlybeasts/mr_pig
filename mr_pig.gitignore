@@ -1,6 +1,6 @@
 mr_pig/preferences.yaml
 node_modules
 
-themes/*/css/*.css
+html/site/themes/*/css/*.css
 # If you don't use Sass, you should comment the above line out and uncomment the next line.
-# themes/*/css/*.prefixed.css
+# html/site/themes/*/css/*.prefixed.css
