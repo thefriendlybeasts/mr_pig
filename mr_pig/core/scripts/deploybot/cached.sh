@@ -8,4 +8,4 @@
 
 
 
-npm install
+npm install --no-progress
