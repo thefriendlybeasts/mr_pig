@@ -19,7 +19,7 @@ content_architecture:
   cwd:    '<%= m.local.root %>'
   dest:   '<%= m.dist.root %>'
   src:
-    - site/content/{collections,taxonomies}/**/folder.yaml
+    - site/content/{collections,taxonomies}/**/*.yaml
     - site/storage/**/container.yaml
 
 
