@@ -4,5 +4,4 @@ html:
       expand: true,
       cwd:    '<%= m.dist.themePath %>'
       dest:   '<%= m.dist.root %>'
-      src:
-        - '<%= m.tasks.build.usemin.files %>'
+      src:    '<%= m.tasks.build.usemin.files %>'
