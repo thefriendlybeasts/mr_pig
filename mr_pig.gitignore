@@ -1,6 +1,14 @@
+# Mr. Pig
+# -------------------------------------------------------------------------------------------------
+dist/
 mr_pig/preferences.yaml
 node_modules
 
+## Sass
+.sass-cache/
 html/site/themes/*/css/*.css
-# If you don't use Sass, you should comment the above line out and uncomment the next line.
+html/site/themes/*/css/*.css.map
+
+## CSS
+# If you don't use Sass, you should comment the Sass section out and uncomment this section.
 # html/site/themes/*/css/*.prefixed.css
