@@ -1,0 +1,34 @@
+options:
+  transform:
+    - vueify
+
+
+
+
+serve:
+  files:
+    -
+      expand: true
+      cwd: '<%= m.local.themePath %>/js/'
+      dest: '<%= m.local.themePath %>/js/compiled'
+      src: 'vue/**/*.js'
+  options:
+    debug: true
+    watch: true
+
+
+build:
+  files:
+    -
+      expand: true
+      cwd: '<%= m.local.themePath %>/js/'
+      # TODO Figure out whether to compile to `local` or `dist`, depending on where usemin
+      #      pulls from.
+      dest: '<%= m.dist.themePath %>/js/compiled'
+      src: 'vue/**/*.js'
+  plugin:
+      - browserify-derequire
+  exclude:
+    - vue-hot-reload-api
+  browserifyOptions:
+    standalone: '<%= m.theme %>'

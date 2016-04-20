@@ -8,6 +8,7 @@ init:
 serve:
   description: Tell Mr. Pig to watch and act upon file changes while you develop your site.
   tasks:
+    - browserify:serve
     - browserSync:serve
     - watch:sass
 
@@ -23,6 +24,7 @@ build:
     - copy:statamic
     - copy:theme
 
+    - browserify:build
     - sass:build
     - shell:autoprefixer
     - postcss:build

@@ -28,7 +28,19 @@ module.exports = function(grunt, options) {
             type: 'confirm',
             message: 'Concat, minify, and uglify before serving code? (see usemin in settings.yaml)',
             default: true
-          }
+          },
+          {
+            config: 'prompt.pkgs.vue',
+            type: 'confirm',
+            message: 'Vue?'
+            default: true
+          },
+          {
+            config: 'prompt.pkgs.hex',
+            type: 'confirm',
+            message: 'Hex?'
+            default: true
+          },
         ],
 
 
