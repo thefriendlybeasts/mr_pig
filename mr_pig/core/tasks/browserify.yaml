@@ -22,8 +22,6 @@ build:
     -
       expand: true
       cwd: '<%= m.local.themePath %>/js/'
-      # TODO Figure out whether to compile to `local` or `dist`, depending on where usemin
-      #      pulls from.
       dest: '<%= m.dist.themePath %>/js/compiled'
       src: 'vue/**/*.js'
   plugin:
