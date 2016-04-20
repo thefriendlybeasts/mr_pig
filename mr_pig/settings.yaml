@@ -51,6 +51,13 @@ tasks:
         - robots.txt
       env: live.env
 
+    # Uglify minifies JavaScript.
+    uglify:
+      # Discard console.* functions.
+      drop_console: true
+      # Vue doesn't support IE8; no point in not screwing it if you're Vueing it up like a boss.
+      screwIE8: true
+
     # Usemin looks through your HTML for blocks of script tags to concatenate and minify.
     #
     # Blocks should look something like this
@@ -88,6 +95,7 @@ tasks:
         - layouts/default.html
 
 
+  # Non-multi-task-specific
   postcss:
     autoprefixer:
       # Which browsers do you want to support (see https://github.com/ai/browserslist)?

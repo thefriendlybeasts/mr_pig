@@ -3,3 +3,6 @@ generated:
   # Set a single option to its default.
   options:
     sourceMap: false
+    compress:
+      drop_console: '<%= m.tasks.build.uglify.drop_console %>'
+    screwIE8: '<%= m.tasks.build.uglify.screwIE8 %>'
