@@ -28,7 +28,7 @@ build:
     -
       expand: true,
       cwd:    '<%= m.local.themePath %>/sass'
-      dest:   '<%= m.dist.themePath %>/css'
+      dest:   '<%= m.local.themePath %>/css'
       ext:    '.css'
       src:
         - '*.scss'

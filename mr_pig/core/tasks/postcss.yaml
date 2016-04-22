@@ -26,11 +26,11 @@ build:
   files:
     -
       expand: true
-      cwd:    '<%= m.dist.themePath %>/css/'
+      cwd:    '<%= m.local.themePath %>/css/'
       src:
         - '*.css'
         - '!*.prefixed.css'
-      dest:   '<%= m.dist.themePath %>/css/'
+      dest:   '<%= m.local.themePath %>/css/'
       # Yes, this should check the `m.tasks.serve`, not `m.tasks.build`. This keeps Mr. Pig users
       # from having to think much about the flow from source styles to compiled styles and works
       # whether or not they use Usemin's build blocks.

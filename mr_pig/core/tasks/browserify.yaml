@@ -22,7 +22,7 @@ build:
     -
       expand: true
       cwd: '<%= m.local.themePath %>/js/'
-      dest: '<%= m.dist.themePath %>/js/compiled'
+      dest: '<%= m.local.themePath %>/js/compiled'
       src: 'vue/**/*.js'
   plugin:
       - browserify-derequire
