@@ -17,3 +17,7 @@ help:
 # Clear ALL THE CACHES Statamic has to offer.
 clear_all_caches:
   command: 'php <%= m.dist.root %>/please clear:cache && php <%= m.dist.root %>/please clear:glide && php <%= m.dist.root %>/please clear:stache && php <%= m.dist.root %>/please clear:static'
+
+# Call please methods appropriate for deployment.
+please_build:
+  command: 'php <%= m.dist.root %>/please clear:cache && php <%= m.dist.root %>/please search:update'

@@ -35,7 +35,7 @@ build:
     - cssmin:generated
     - usemin
 
-    - shell:clear_all_caches
+    - shell:please_build
 
 
 help:
